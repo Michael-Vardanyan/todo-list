@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+#container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#input-task {
+    width: 400px;
+    height: 40px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#add-task-button {
+    height: 40px;
+    width: 150px;
+    background-color: #e28fc1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: auto;
+}
+
+#add-task-button:hover {
+    background-color: #da5caa;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+input[type='checkbox'] {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.task {
+    flex: 1;
+    margin: 0 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.delete-btn {
+    width: 32px;
+    height: 32px;
+    background: url("assets/remove.png") no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.delete-btn:hover {
+    background: url("assets/remove_hover.png") no-repeat center center;
+    background-size: contain;
+    opacity: 0.8;
+}
