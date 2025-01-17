@@ -1,4 +1,5 @@
 const taskList = document.getElementById("task-list");
+let isTaskChecked = false;
 function ToDoListObject(name, completed) {
     this.name = name;
     this.completed = completed;
@@ -12,10 +13,10 @@ function addTask() {
         if (lastText !== "") {
             inputField.value = "";
 
-            const taskItem = createTaskElement(lastText, false);
+            const taskItem = createTaskElement(lastText, isTaskChecked);
             taskList.append(taskItem);
 
-            saveTasks(lastText, false);
+            saveTasks(lastText, isTaskChecked);
         }
     });
 }
@@ -24,13 +25,17 @@ function deleteTask() {
     taskList.addEventListener("click", function (event) {
         if (event.target.classList.contains("delete-btn")) {
             const taskItem = event.target.closest("li");
-            const taskText = taskItem.querySelector(".task").textContent;
+            const checkBox = taskItem.querySelector("input[type='checkbox']");
 
-            taskItem.remove();
+            if (checkBox.checked) {
+                const taskText = taskItem.querySelector(".task").textContent;
 
-            let tasks = retrieveTasks();
-            tasks = tasks.filter(task => task.name !== taskText);
-            localStorage.setItem("tasks", JSON.stringify(tasks));
+                taskItem.remove();
+
+                let tasks = retrieveTasks();
+                tasks = tasks.filter(task => task.name !== taskText);
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+            }
         }
     });
 }
